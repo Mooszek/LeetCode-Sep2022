@@ -1,0 +1,29 @@
+class Solution:
+
+    def __init__(self, s):
+        self.s=s
+
+    def isValid(s):
+        stack = []
+        for bracket in s:
+            if bracket == '(' or bracket == '[' or bracket == '{':
+                stack.append(bracket)
+            else:
+                try:
+                    last = stack.pop()
+                    if (last== '(' and bracket == ')') or  (last == '[' and bracket ==']') or  (last == '{' and bracket =='}'):
+                        continue
+                    else:
+                        return False
+                except:
+                    return False
+        if stack:
+            return False
+        else:
+            return True
+
+
+lista ="((" #example
+
+wynik = Solution.isValid(lista)
+print(wynik)
